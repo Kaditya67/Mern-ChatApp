@@ -1,21 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import { AuthContextProvider } from './context/AuthContext';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { SocketContextProvider } from "./context/SocketContext.jsx";
 
-const rootElement = document.getElementById('root');
-
-ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <AuthContextProvider>
-      <BrowserRouter>
-        <ToastContainer />
-        <App />
-      </BrowserRouter>
-    </AuthContextProvider>
-  </React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<React.StrictMode>
+		<BrowserRouter>
+			<AuthContextProvider>
+				<SocketContextProvider>
+					<App />
+				</SocketContextProvider>
+			</AuthContextProvider>
+		</BrowserRouter>
+	</React.StrictMode>
 );
